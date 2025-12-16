@@ -35,7 +35,7 @@ venv\Scripts\activate
 ### 2. Install Dependencies
 
 ```
-pip install colorama
+pip install colorama pyfiglet
 ```
 
 ---
@@ -85,13 +85,3 @@ Output:
 * This tool is **Windows-only** due to `msvcrt.getch()` and `cls`.
 * Max input length for words: **15 characters**
 * Ranges must follow the format: `A-D`
-
----
-
-## 🙏 **Credits**
-
-This project was inspired by and references the following source:
-
-* **ASCII Art Concept, Pattern Approach and Logic**
-  Adapted from: *ASCII-ART-Project---Python by TarunSharma31*
-  Repository: [ASCII-ART-Project---Python](https://github.com/TarunSharma31/ASCII-ART-Project---Python)
