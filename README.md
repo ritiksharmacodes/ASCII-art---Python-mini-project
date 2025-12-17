@@ -1,25 +1,31 @@
 # **ASCII Art Generator – Windows CLI Edition**
 
-A fast, interactive **Windows-only** CLI tool that displays **large ASCII art** for letters, numbers, words, symbols, and even alphabet ranges.
-Built using internally defined ASCII character patterns, instant keypress navigation, and vibrant **color-themed output** using `colorama`.
+A fast, interactive **Windows-only** command-line application that generates **large ASCII art** for characters, words, numbers, and ranges using **multiple Figlet font styles**.
 
-This mini project recreates the feel of classic DOS-style interfaces—clean, snappy, and visually bold.
+The app delivers a classic DOS-style experience with instant keypress navigation, vibrant color output, and dynamic font rendering powered by **pyfiglet**.
 
 ---
 
 ## 🚀 **Features**
 
+* **Font selection menu** with 5 distinct ASCII styles:
+
+  * Graffiti
+  * Big
+  * Epic
+  * Modular
+  * Electronic
 * **Instant single-key navigation** using `msvcrt.getch()`
-* **Colorful output** powered by Colorama
+* **Color-rich output** via `colorama`
 * Generate ASCII art for:
 
-  * Single Characters
-  * Full Words (A–Z, 0–9, symbols)
-  * Alphabet Ranges (e.g., `A-D`)
-  * Alphabets-only Mode
-  * Numbers-only Mode
+  * Single characters
+  * Full words (up to 15 characters)
+  * Alphabet ranges (e.g. `A-D`)
+  * Alphabets-only input
+  * Numbers-only input
+* **Menu-driven UX** with fast screen refresh
 * **Optimized for Windows Terminal / CMD**
-* **Menu-driven UX** with quick screen transitions
 
 ---
 
@@ -50,13 +56,27 @@ python main.py
 
 ## 🖥 **How It Works**
 
-* The script stores all ASCII patterns in 5 structured rows.
-* Each character is mapped using fixed-width slicing.
-* Coloring is done row-by-row to preserve the ASCII structure.
-* For each input:
+* ASCII art is generated dynamically using **pyfiglet**
+* Users select a font before accessing the main menu
+* Input is validated based on the selected mode:
 
-  * The correct pattern segment is extracted
-  * Characters are printed side-by-side to form large ASCII text
+  * Length limits (max 15 characters)
+  * Alphabet-only or number-only constraints
+  * Proper range formatting (`A-D`)
+* Output is rendered instantly using the selected font
+* Screen transitions use `cls` for a clean CLI experience
+
+---
+
+## 🎨 **Available Fonts**
+
+| Option | Font Name  |
+| -----: | ---------- |
+|      1 | Graffiti   |
+|      2 | Big        |
+|      3 | Epic       |
+|      4 | Modular    |
+|      5 | Electronic |
 
 ---
 
@@ -65,23 +85,24 @@ python main.py
 Input:
 
 ```
-A
+HELLO
 ```
 
-Output:
+Output (example – varies by font):
 
 ```
- *** 
-*   *
-*****
-*   *
-*   *
+██╗  ██╗███████╗██╗     ██╗      ██████╗
+██║  ██║██╔════╝██║     ██║     ██╔═══██╗
+███████║█████╗  ██║     ██║     ██║   ██║
+██╔══██║██╔══╝  ██║     ██║     ██║   ██║
+██║  ██║███████╗███████╗███████╗╚██████╔╝
 ```
 
 ---
 
 ## ⚠️ **Notes**
 
-* This tool is **Windows-only** due to `msvcrt.getch()` and `cls`.
-* Max input length for words: **15 characters**
-* Ranges must follow the format: `A-D`
+* **Windows-only** (uses `msvcrt` and `cls`)
+* Maximum input length: **15 characters**
+* Range input must follow strict format: `A-D`
+* Fonts affect output width and alignment
